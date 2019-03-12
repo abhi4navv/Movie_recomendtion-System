@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.header {
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 18px;
+}
+.header2 {
+  text-align: right;
+  background: #1abc9c;
+  color: white;
+  font-size: 14px;
+}
+
+
+td, th {
+  text-align: left;
+  padding: 8px;
+
+}
+.brder{
+       border: 1px solid;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+input[type=text], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 414px
+}
+body{
+    margin:0px;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+label{
+  font-family:  Arial, Helvetica, sans-serif;
+}
+span {
+  font-size: 9pt
+}
+p{
+color: #771111;
+font-size:25px;
+font-family:  Arial, Helvetica, sans-serif;
+}
+
+.pclss{
+color: #771111;
+font-size:25px;
+font-family:  Arial, Helvetica, sans-serif;
+}
+
+.pclss2{
+color: #771111;
+font-size:12px;
+font-family:  Arial, Helvetica, sans-serif;
+}
+</style>
+  </head>
+  <body>
+    <form method="POST">
+      <div class="header">
+        <table>
+          <tr>
+
+
+            <td colspan="2" class="header">
+  <h2>Movie Recommendation System</h2>
+  <p>Using Machine Learning and Natural Language Processing</p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="header">
+
+            </td>
+            </tr>
+            <tr>
+            <td colspan="2" class="header2">
+  Developed by: Abhinav Abhishek
+              </td>
+              </tr>
+        </table>
+
+
+    </div>
+    <div widh="100%" class="brder">
+    <table width="100%">
+      <tr>
+        <td>
+            <label for="fname">Enter the Movie Name</label>
+            <input type="text" id="text" name="text" placeholder="Movie name..">
+      </td>
+      </tr>
+      <tr>
+        <td>
+
+        <input type="submit" name="Submit" value="Submit">
+      </td>
+      </tr>
+    </table>
+    <div widh="100%">
+      <table widh="100%">
+          <tr>
+            <td colspan="5" text-align="center">
+                {{ messages }}
+              </td>
+
+            </tr>
+        </table>
+    </div>
+      <table widh="100%">
+          <tr>
+            <td colspan="5" text-align="center" height="5pt">
+
+              </td>
+
+            </tr>
+        </table>
+  </div>
+  {% if posts !='0' %}
+  <div id="Reviews">
+    <table>
+
+      <tr>
+        <td>
+          <span>{{json_headers[0]}}</span>
+        </td>
+        <td>
+          <span>{{json_headers[1]}}</span>
+          </td>
+        <td>
+          <span>{{json_headers[2]}}</span>
+        </td>
+        <td>
+          <span>{{json_headers[3]}}</span>
+        </td>
+        <td>
+          <span>{{json_headers[4]}}</span>
+        </td>
+        <td>
+          <span>{{json_headers[5]}}</span>
+        </td>
+      </tr>
+
+        {% for dt in posts %}
+        <tr>
+          <td>
+            {{dt[1]}}
+          </td>
+          <td>
+              {{dt[2]}}
+            </td>
+          <td>
+            {{dt[3]}}
+          </td>
+          <td>
+            {{dt[4]}}
+          </td>
+          <td>
+            {{dt[5]}}
+          </td>
+          <td>
+            {{dt[6]}}
+          </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    {% else %}
+    <div>
+      <table>
+        <tr>
+          <td colspan="5">
+              {{ message }}
+            </td>
+
+          </tr>
+        </table>
+      </div>
+    {% endif %}
+<footer width="100%">
+
+
+  <p class="pclss2">Contact information: <a href="mailto:abhi4navv@gmail.com"> abhi4navv@gmail.com</a>.</p>
+</footer>
+      </form>
+  </body>
+</html>
